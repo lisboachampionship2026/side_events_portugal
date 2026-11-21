@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="pt"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Resultados</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%8A%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#f5f6fa;--card:#fff;--soft:#eef1f8;--fg:#131a2b;--mut:#677087;--bd:#e3e6ef;--acc:#2f5bea;--on:#fff;--bad:#d92d20;--sh:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.06)}
+@media(prefers-color-scheme:dark){:root{--bg:#0c1016;--card:#151a23;--soft:#1b2230;--fg:#e9edf5;--mut:#93a0b8;--bd:#252d3b;--acc:#7b97ff;--on:#0c1016;--bad:#f97066;--sh:none}}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+main{max-width:920px;margin:0 auto;padding:18px 16px 56px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+.brand{display:flex;align-items:center;gap:12px}.brand svg{width:38px;height:38px;flex:none}
+h1{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin:0}
+h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin:0 0 .7em;font-weight:700}
+button,input,select,textarea{font:inherit;color:inherit}
+input,select,textarea{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:9px 12px;max-width:100%;min-width:0}
+input:focus,select:focus,textarea:focus{border-color:var(--acc)}
+textarea{width:100%}
+button{background:var(--acc);color:var(--on);border:0;border-radius:10px;padding:9px 16px;font-weight:600;cursor:pointer;transition:filter .15s,transform .05s}
+button:hover:not(:disabled){filter:brightness(1.08)}button:active:not(:disabled){transform:translateY(1px)}
+button:disabled{opacity:.5;cursor:default}
+button.ghost{background:transparent;color:var(--fg);border:1px solid var(--bd)}
+button.ghost:hover:not(:disabled){background:var(--soft);filter:none}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.lang{display:inline-flex;background:var(--soft);border-radius:999px;padding:3px}
+.lang button{background:none;color:var(--mut);border:0;border-radius:999px;padding:5px 12px;font-size:.82rem}
+.lang button.on{background:var(--card);color:var(--fg);box-shadow:var(--sh)}
+.hero{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin:6px 0 16px}
+#cinfo strong{display:block;font-size:1.7rem;line-height:1.15;letter-spacing:-.02em}#cinfo span{color:var(--mut)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
+.tabs button{background:var(--card);color:var(--fg);border:1px solid var(--bd);border-radius:999px;padding:7px 16px}
+.tabs button.on{background:var(--acc);color:var(--on);border-color:var(--acc)}
+.chip{display:inline-block;background:var(--soft);color:var(--mut);border-radius:999px;padding:3px 12px;font-size:.85rem;margin-bottom:12px}.chip:empty{display:none}
+.tablewrap{overflow-x:auto;background:var(--card);border:1px solid var(--bd);border-radius:16px;box-shadow:var(--sh)}
+table{border-collapse:collapse;width:100%}
+th,td{text-align:left;padding:11px 14px;white-space:nowrap}
+th{color:var(--mut);font-weight:600;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--bd)}
+td{border-bottom:1px solid var(--bd)}tr:last-child td{border-bottom:0}
+tr+tr:hover td{background:var(--soft)}tr.lead td{background:color-mix(in srgb,var(--acc) 7%,transparent)}
+td.n{font-variant-numeric:tabular-nums;color:var(--mut)}td.b{color:var(--fg);font-weight:600}td.a{color:var(--acc);font-weight:800}td.nm{font-weight:600}
+.pos{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;font-weight:700;font-size:.85rem;color:var(--mut)}
+.pos.p1{background:#f6c945;color:#3b2e00}.pos.p2{background:#cfd5df;color:#2a3140}.pos.p3{background:#dca072;color:#3a2210}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0}.row.end{justify-content:flex-end;margin-top:14px}
+.mut{color:var(--mut)}.err{color:var(--bad)}
+#admin{display:none;background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:18px;margin-bottom:26px;box-shadow:var(--sh)}#admin.show{display:block}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));margin-top:10px}
+.grid>div{background:var(--soft);border-radius:14px;padding:16px}
+.att{width:92px}.row input[type=email],.row input#en{flex:1 1 180px}
+.crow{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--bd)}.crow:last-child{border-bottom:0}
+details{margin-top:12px}summary{cursor:pointer;color:var(--mut);font-size:.9rem}#cname{font-weight:700}
+#msg:empty{display:none}#msg{margin:8px 0}
+.foot{color:var(--mut);font-size:.8rem;text-align:center;margin-top:28px}
+@media(max-width:520px){th,td{padding:10px 9px}#cinfo strong{font-size:1.4rem}}
+</style></head><body><main>
+<div class="top"><div class="brand"><svg viewBox="0 0 38 38" aria-hidden="true"><rect width="11" height="11" rx="3" fill="#e5484d"/><rect x="13.5" width="11" height="11" rx="3" fill="#f5c945"/><rect x="27" width="11" height="11" rx="3" fill="#2f6fe0"/><rect y="13.5" width="11" height="11" rx="3" fill="#3fb67a"/><rect x="13.5" y="13.5" width="11" height="11" rx="3" fill="#f08a24"/><rect x="27" y="13.5" width="11" height="11" rx="3" fill="#e5484d"/><rect y="27" width="11" height="11" rx="3" fill="#2f6fe0"/><rect x="13.5" y="27" width="11" height="11" rx="3" fill="#d7dce8"/><rect x="27" y="27" width="11" height="11" rx="3" fill="#3fb67a"/></svg><h1 data-i="title">Resultados</h1></div><div class="lang"><button data-l="en" aria-label="English">EN</button><button data-l="pt" aria-label="Português">PT</button></div></div>
+
+<section id="admin">
+  <div id="login">
+    <h2 data-i="login">Login</h2>
+    <div class="row"><button id="go" data-i="go">Google</button></div>
+    <div id="lerr" class="err"></div>
+  </div>
+  <div id="panel" hidden>
+    <div class="row"><strong data-i="panel">Painel</strong><span id="who" class="mut"></span><button class="ghost" id="out" data-i="out">Sair</button></div>
+    <div id="msg" class="mut"></div>
+    <div id="noaccess" class="err" data-i="noaccess" hidden></div>
+    <div class="grid">
+      <div class="sc" hidden><h2 data-i="enter">Registar tempos</h2>
+        <div id="ecomp" class="mut"></div>
+        <div class="row"><select id="se"></select></div>
+        <div class="row"><input id="cid" class="att" inputmode="numeric" data-p="cid" autocomplete="off"><span id="cname"></span></div>
+        <div id="atts" class="row"></div>
+        <div class="row"><button id="save" data-i="save">Guardar</button><button class="ghost" id="del" data-i="del">Apagar</button></div></div>
+      <div class="adm" hidden><h2 data-i="adde_h">Adicionar prova</h2>
+        <div class="row"><input id="en" data-p="en"></div>
+        <div class="row"><select id="ef"><option value="ao5" data-i="f_ao5"></option><option value="mo3" data-i="f_mo3"></option><option value="bo3" data-i="f_bo3"></option><option value="bo1" data-i="f_bo1"></option></select></div>
+        <div class="row"><select id="er"><option value="average" data-i="r_avg"></option><option value="best" data-i="r_best"></option></select><button id="adde" data-i="adde"></button></div>
+        <div class="row"><button class="ghost" id="dele" data-i="dele"></button></div></div>
+      <div class="adm" hidden><h2 data-i="comps_h">Competições</h2>
+        <div class="row"><button id="findc" data-i="findc"></button><button class="ghost" id="refc" data-i="refc"></button></div>
+        <div id="cmsg" class="mut"></div><div id="clist"></div>
+        <details><summary data-i="manual"></summary><textarea id="wcif" rows="3" data-p="wcifph"></textarea><div class="row"><button class="ghost" id="impj" data-i="impj"></button></div></details></div>
+      <div class="adm" hidden><h2 data-i="scorers_h">Utilizadores</h2>
+        <div class="row"><input id="sem" type="email" data-p="semph"><button id="adds" data-i="adds"></button></div><div id="slist"></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="hero"><div id="cinfo"></div><select id="vc" hidden></select></div>
+<div id="tabs" class="tabs"></div>
+<div id="evinfo" class="chip"></div>
+<div class="tablewrap"><table id="tbl"></table></div>
+<div class="row end"><button class="ghost" id="csv" data-i="csv">CSV</button></div>
+<p class="foot" data-i="foot"></p>
+</main>
+<script type="module">
+import * as cfg from "./config.js";
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {getFirestore,collection,onSnapshot,doc,setDoc,getDoc,getDocs,addDoc,deleteDoc,serverTimestamp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import {getAuth,GoogleAuthProvider,signInWithPopup,signOut,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+const app=initializeApp(cfg.firebaseConfig),db=getFirestore(app),auth=getAuth(app);
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const FMT={ao5:{n:5,avg:1},mo3:{n:3,avg:1},bo3:{n:3},bo1:{n:1}};
+const WCA="https://www.worldcubeassociation.org/api/v0/competitions";
+let comps=[],events=[],results=[],scorers=[],found=[],cur=null,view=null,user=null,role="",unsubSc=null;
+
+const T={en:{title:"Results",foot:"Unofficial results for the side events. Official results are on the WCA website.",login:"Organiser login",go:"Sign in with Google",panel:"Organiser panel",out:"Log out",noaccess:"This account is not authorised to enter results. Ask the organiser to add your email.",enter:"Enter times",save:"Save result",del:"Delete result",adde_h:"Add event",en:"Event name (e.g. Cap to pen)",f_ao5:"Average of 5",f_mo3:"Mean of 3",f_bo3:"Best of 3",f_bo1:"Single attempt",r_avg:"Rank by average",r_best:"Rank by best",adde:"Add event",dele:"Delete selected event",comps_h:"Competitions",findc:"Find Portuguese competitions",refc:"Update competitors",manual:"Manual import (if the automatic one fails)",wcifph:"Paste the JSON from worldcubeassociation.org/api/v0/competitions/ID/wcif/public",impj:"Import JSON",scorers_h:"Authorised scorers",semph:"Google email",adds:"Add scorer",cid:"Competitor ID",nf:"Competitor not found",active:"Active competition",noact:"No active competition.",loadingc:"Loading…",nocomps:"No upcoming competitions found.",wcaerr:"Could not reach the WCA. Try again or use the manual import.",working:"Working…",done:"Done.",activate:"Activate",activeok:"Active ✓",ncomp:"{n} competitors",needev:"Choose an event.",confs:"Remove this scorer?",csv:"Download CSV",hi:"higher wins",lo:"lower wins",rankedby:"ranked by",avg:"average",best:"best",nores:"no results yet",noev:"No events yet.",name:"Name",pos:"Pos",att:"Attempt",lerr:"Sign-in failed. Please try again.",loaderr:"Could not load data: ",saveerr:"Could not save. Is this account authorised? ",badn:"\"{v}\" is not a valid number.",badt:"\"{v}\" is not a valid time.",atleast1:"Enter at least one attempt.",saved:"Saved:",confdelr:"Delete this result?",deleted:"Deleted.",namefirst:"Name the event first.",evadded:"Event added.",confdele:"Delete \"{n}\"? Its results stay in the database but are hidden."},
+pt:{title:"Resultados",foot:"Resultados não oficiais das provas extra. Os resultados oficiais estão no site da WCA.",login:"Início de sessão do organizador",go:"Entrar com Google",panel:"Painel do organizador",out:"Sair",noaccess:"Esta conta não tem autorização para registar resultados. Peça ao organizador para adicionar o seu e-mail.",enter:"Registar tempos",save:"Guardar resultado",del:"Apagar resultado",adde_h:"Adicionar prova",en:"Nome da prova (ex.: Cap to pen)",f_ao5:"Média de 5",f_mo3:"Média aritmética de 3",f_bo3:"Melhor de 3",f_bo1:"Tentativa única",r_avg:"Classificar pela média",r_best:"Classificar pelo melhor",adde:"Adicionar prova",dele:"Apagar prova selecionada",comps_h:"Competições",findc:"Procurar competições em Portugal",refc:"Atualizar competidores",manual:"Importação manual (se a automática falhar)",wcifph:"Cole o JSON de worldcubeassociation.org/api/v0/competitions/ID/wcif/public",impj:"Importar JSON",scorers_h:"Utilizadores autorizados",semph:"E-mail Google",adds:"Adicionar utilizador",cid:"ID do competidor",nf:"Competidor não encontrado",active:"Competição ativa",noact:"Não há competição ativa.",loadingc:"A carregar…",nocomps:"Não foram encontradas competições futuras.",wcaerr:"Não foi possível contactar a WCA. Tente outra vez ou use a importação manual.",working:"A processar…",done:"Concluído.",activate:"Ativar",activeok:"Ativa ✓",ncomp:"{n} competidores",needev:"Escolha uma prova.",confs:"Remover este utilizador?",csv:"Descarregar CSV",hi:"maior ganha",lo:"menor ganha",rankedby:"classificação pela",avg:"média",best:"melhor",nores:"ainda sem resultados",noev:"Ainda não há provas.",name:"Nome",pos:"Pos.",att:"Tentativa",lerr:"Falha no início de sessão. Tente novamente.",loaderr:"Não foi possível carregar os dados: ",saveerr:"Não foi possível guardar. Esta conta está autorizada? ",badn:"\"{v}\" não é um número válido.",badt:"\"{v}\" não é um tempo válido.",atleast1:"Introduza pelo menos uma tentativa.",saved:"Guardado:",confdelr:"Apagar este resultado?",deleted:"Apagado.",namefirst:"Dê primeiro um nome à prova.",evadded:"Prova adicionada.",confdele:"Apagar \"{n}\"? Os resultados ficam na base de dados, mas ocultos."}};
+let lang;try{lang=localStorage.getItem("lang")}catch(e){}
+if(!T[lang])lang="pt";
+const t=k=>T[lang][k]??T.en[k]??k;
+function applyLang(){
+  document.documentElement.lang=lang;document.title=t("title");
+  document.querySelectorAll("[data-i]").forEach(e=>e.textContent=t(e.dataset.i));
+  document.querySelectorAll("[data-p]").forEach(e=>e.placeholder=t(e.dataset.p));
+  document.querySelectorAll("[data-l]").forEach(b=>b.classList.toggle("on",b.dataset.l===lang));
+  [...$("atts").children].forEach((e,i)=>e.placeholder=t("att")+" "+(i+1));
+  render();
+}
+
+// ---- parsing & formatting (times in centiseconds; -1 DNF, -2 DNS)
+function parse(s,type){
+  s=s.trim().toUpperCase(); if(!s)return null;
+  if(type==="count"){if(s==="DNF"||s==="DNS")return 0;const n=parseInt(s,10);return isNaN(n)?undefined:Math.max(0,n)}
+  if(s==="DNF")return -1; if(s==="DNS")return -2;
+  let pen=0; if(s.endsWith("+")){pen=200;s=s.slice(0,-1)}
+  let cs;
+  if(/^\d+$/.test(s)){const n=+s;cs=(n%100)+Math.floor(n/100)%100*100+Math.floor(n/10000)*6000}
+  else{const m=s.match(/^(?:(\d+):)?(\d+)(?:\.(\d{1,2}))?$/);if(!m)return undefined;
+    cs=(+(m[1]||0))*6000+(+m[2])*100+(m[3]?+m[3].padEnd(2,"0"):0)}
+  return cs+pen;
+}
+function fmt(v,type){
+  if(v==null)return "";
+  if(type==="count")return Number.isInteger(v)?String(v):v.toFixed(2);
+  if(v===-1)return "DNF"; if(v===-2)return "DNS";
+  const m=Math.floor(v/6000),s=(v%6000)/100;
+  return m?`${m}:${s.toFixed(2).padStart(5,"0")}`:s.toFixed(2);
+}
+function stats(ev,att){
+  const f=FMT[ev.format],a=att.filter(x=>x!=null),c=ev.type==="count";
+  const ok=a.filter(x=>x>=0&&(c||x>0));
+  const best=ok.length?(c?Math.max(...ok):Math.min(...ok)):(c?0:-1);
+  let avg=null;
+  if(f.avg&&a.length===f.n){
+    if(c)avg=Math.round(a.reduce((x,y)=>x+y,0)/a.length*100)/100;
+    else if(ev.format==="mo3")avg=a.some(x=>x<0)?-1:Math.round(a.reduce((x,y)=>x+y,0)/3);
+    else{const d=a.filter(x=>x<0).length;
+      if(d>1)avg=-1;else{const s=a.map(x=>x<0?Infinity:x).sort((x,y)=>x-y).slice(1,4);avg=Math.round(s.reduce((x,y)=>x+y,0)/3)}}
+  }
+  return {best,avg};
+}
+function key(ev,v){if(v==null)return Infinity;if(ev.type==="count")return -v;return v>0?v:Infinity}
+const act=()=>comps.find(c=>c.active);
+const compEvents=id=>events.filter(e=>e.competitionId===id).sort((a,b)=>(a.created||0)-(b.created||0));
+function ranked(ev){
+  const comp=comps.find(c=>c.id===ev.competitionId);
+  return results.filter(r=>r.eventId===ev.id).map(r=>{
+    const c=comp?.competitors?.find(x=>x.r===r.registrantId);const st=stats(ev,r.attempts||[]);
+    const hasAvg=FMT[ev.format].avg,useAvg=hasAvg&&ev.rank!=="best";
+    const k1=useAvg?key(ev,st.avg):key(ev,st.best),k2=useAvg?key(ev,st.best):0;
+    return {...r,name:c?c.n:"#"+r.registrantId,wca:c?.w||"",...st,k1,k2};
+  }).sort((a,b)=>a.k1-b.k1||a.k2-b.k2||a.name.localeCompare(b.name));
+}
+
+// ---- rendering
+function render(){
+  const a=act();
+  // entry (scorers/admin): always the active competition
+  $("ecomp").textContent=a?t("active")+": "+a.name:t("noact");
+  const aevs=a?compEvents(a.id):[],sv=$("se").value;
+  $("se").innerHTML=aevs.map(e=>`<option value="${esc(e.id)}">${esc(e.name)}</option>`).join("");
+  if(aevs.find(e=>e.id===sv))$("se").value=sv;
+  buildAtts(false);renderComps();renderScorers();
+  // public view
+  const vc=comps.find(c=>c.id===view)||a||comps[0];
+  $("vc").hidden=comps.length<2;
+  $("vc").innerHTML=comps.map(c=>`<option value="${esc(c.id)}">${esc(c.name)}</option>`).join("");
+  if(vc)$("vc").value=vc.id;
+  $("cinfo").innerHTML=vc?`<strong>${esc(vc.name)}</strong>${vc.start?`<span>${esc(vc.start)}</span>`:""}`:`<span>${esc(t("noact"))}</span>`;
+  const evs=vc?compEvents(vc.id):[];
+  if(!evs.find(e=>e.id===cur))cur=evs[0]?.id||null;
+  $("tabs").innerHTML=evs.map(e=>`<button class="${e.id===cur?"on":""}" data-id="${esc(e.id)}">${esc(e.name)}</button>`).join("");
+  const ev=evs.find(e=>e.id===cur);
+  if(!ev){$("tbl").innerHTML="";$("evinfo").textContent=vc?t("noev"):"";return}
+  const f=FMT[ev.format],c=ev.type==="count";
+  $("evinfo").textContent=`${t("f_"+ev.format)} · ${c?t("hi"):t("lo")} · ${t("rankedby")} ${f.avg&&ev.rank!=="best"?t("avg"):t("best")}`;
+  const rows=ranked(ev);
+  let h=`<tr><th>#</th><th>${t("name")}</th>${[...Array(f.n)].map((_,i)=>`<th>${i+1}</th>`).join("")}<th>${t("best")}</th>${f.avg?`<th>${t("avg")}</th>`:""}</tr>`;
+  let pos=0,prev=null;
+  h+=rows.map((r,i)=>{const k=r.k1+"|"+r.k2;if(k!==prev)pos=i+1;prev=k;
+    const at=[...Array(f.n)].map((_,j)=>`<td class="n">${esc(fmt(r.attempts?.[j],ev.type))}</td>`).join("");
+    return `<tr class="${pos===1&&r.k1<Infinity?"lead":""}"><td><span class="pos ${pos<=3&&r.k1<Infinity?"p"+pos:""}">${pos}</span></td><td class="nm">${esc(r.name)}</td>${at}<td class="n b">${esc(fmt(r.best,ev.type))}</td>${f.avg?`<td class="n a">${esc(fmt(r.avg,ev.type))}</td>`:""}</tr>`}).join("");
+  $("tbl").innerHTML=h;
+  if(!rows.length)$("evinfo").textContent+=" · "+t("nores");
+}
+function lookup(){
+  const a=act(),n=parseInt($("cid").value,10),c=a&&a.competitors?.find(x=>x.r===n);
+  $("cname").textContent=c?c.n:($("cid").value.trim()?t("nf"):"");$("cname").className=c?"":"err";
+  return c;
+}
+function buildAtts(force){
+  const ev=events.find(e=>e.id===$("se").value),a=act();
+  if(!ev||!a){$("atts").innerHTML="";delete $("atts").dataset.k;lookup();return}
+  const c=lookup(),n=FMT[ev.format].n,k=ev.id+"|"+(c?c.r:"");
+  if(!force&&$("atts").dataset.k===k&&$("atts").children.length===n)return;
+  const ex=c&&results.find(r=>r.id===`${a.id}_${ev.id}_${c.r}`);
+  $("atts").dataset.k=k;
+  $("atts").innerHTML=[...Array(n)].map((_,i)=>`<input class="att" placeholder="${t("att")} ${i+1}" value="${esc(fmt(ex?.attempts?.[i],ev.type))}" autocomplete="off">`).join("");
+}
+function renderComps(){
+  const m=new Map();
+  found.forEach(c=>m.set(c.id,{id:c.id,name:c.name,start:c.start_date||"",city:c.city||""}));
+  comps.forEach(c=>m.set(c.id,{id:c.id,name:c.name,start:c.start||m.get(c.id)?.start||"",city:m.get(c.id)?.city||"",n:c.competitors?.length,active:c.active}));
+  $("clist").innerHTML=[...m.values()].sort((a,b)=>a.start>b.start?1:-1).map(c=>`<div class="crow"><span>${esc(c.name)} <span class="mut">${esc(c.start)} ${esc(c.city)} ${c.n!=null?"· "+t("ncomp").replace("{n}",c.n):""}</span></span><button class="${c.active?"ghost":""}" ${c.active?"disabled":""} data-a="${esc(c.id)}">${c.active?t("activeok"):t("activate")}</button></div>`).join("");
+}
+function renderScorers(){
+  $("slist").innerHTML=scorers.map(e=>`<div class="crow"><span>${esc(e)}</span><button class="ghost" data-s="${esc(e)}">×</button></div>`).join("");
+}
+function showRole(){
+  $("login").hidden=!!user;$("panel").hidden=!user;
+  $("who").textContent=user?user.email:"";
+  $("noaccess").hidden=role!=="none";
+  document.querySelectorAll(".sc").forEach(e=>e.hidden=!(role==="admin"||role==="scorer"));
+  document.querySelectorAll(".adm").forEach(e=>e.hidden=role!=="admin");
+}
+
+// ---- helpers
+const say=(m,bad)=>{$("msg").textContent=m;$("msg").className=bad?"err":"mut"};
+const guard=p=>p.catch(e=>say(t("saveerr")+(e.code||e.message),true));
+
+// ---- WCA import
+async function wcaGet(url){const r=await fetch(url);if(!r.ok)throw new Error("HTTP "+r.status);return r.json()}
+async function saveComp(w,activate){
+  if(!w||!w.id||!Array.isArray(w.persons))throw new Error("JSON");
+  const list=w.persons.filter(p=>p.registrantId!=null&&(!p.registration||p.registration.status==="accepted")).map(p=>({r:p.registrantId,n:p.name,w:p.wcaId||""})).sort((a,b)=>a.r-b.r);
+  await setDoc(doc(db,"competitions",w.id),{name:w.name,start:w.schedule?.startDate||"",competitors:list,importedAt:Date.now()},{merge:true});
+  if(activate)await setActive(w.id);
+}
+async function setActive(id){
+  await Promise.all([...new Set([...comps.map(c=>c.id),id])].map(x=>setDoc(doc(db,"competitions",x),{active:x===id},{merge:true})));
+  view=id;cur=null;
+}
+$("findc").onclick=async()=>{
+  $("cmsg").textContent=t("loadingc");
+  try{const d=new Date(Date.now()-864e5).toISOString().slice(0,10);
+    found=await wcaGet(`${WCA}?country_iso2=PT&start=${d}`);
+    $("cmsg").textContent=found.length?"":t("nocomps")}
+  catch(e){$("cmsg").textContent=t("wcaerr")+" ("+e.message+")"}
+  renderComps();
+};
+$("clist").onclick=async e=>{
+  const b=e.target.closest("button");if(!b)return;const id=b.dataset.a;b.disabled=true;$("cmsg").textContent=t("working");
+  try{if(comps.find(c=>c.id===id))await setActive(id);else await saveComp(await wcaGet(`${WCA}/${id}/wcif/public`),true);$("cmsg").textContent=t("done")}
+  catch(err){$("cmsg").textContent=t("wcaerr")+" ("+(err.code||err.message)+")"}
+  b.disabled=false;
+};
+$("refc").onclick=async()=>{
+  const a=act();if(!a)return $("cmsg").textContent=t("noact");
+  $("cmsg").textContent=t("working");
+  try{await saveComp(await wcaGet(`${WCA}/${a.id}/wcif/public`),false);$("cmsg").textContent=t("done")}
+  catch(err){$("cmsg").textContent=t("wcaerr")+" ("+(err.code||err.message)+")"}
+};
+$("impj").onclick=async()=>{
+  $("cmsg").textContent=t("working");
+  try{await saveComp(JSON.parse($("wcif").value),true);$("wcif").value="";$("cmsg").textContent=t("done")}
+  catch(err){$("cmsg").textContent=t("wcaerr")+" ("+(err.code||err.message)+")"}
+};
+
+// ---- UI events
+$("tabs").onclick=e=>{const b=e.target.closest("button");if(b){cur=b.dataset.id;render()}};
+$("vc").onchange=()=>{view=$("vc").value;cur=null;render()};
+$("se").onchange=()=>buildAtts(false);
+$("cid").oninput=()=>buildAtts(false);
+$("cid").onkeydown=e=>{if(e.key==="Enter"){e.preventDefault();$("atts").children[0]?.focus()}};
+$("atts").onkeydown=e=>{
+  if(e.key!=="Enter")return;e.preventDefault();
+  const i=[...$("atts").children],k=i.indexOf(e.target);
+  if(k<i.length-1)i[k+1].focus();else $("save").click();
+};
+$("csv").onclick=()=>{
+  const vc=comps.find(c=>c.id===view)||act()||comps[0],ev=vc&&compEvents(vc.id).find(e=>e.id===cur);if(!ev)return;const f=FMT[ev.format];
+  const q=s=>`"${String(s).replace(/"/g,'""')}"`;
+  const lines=[[t("pos"),t("name"),"ID","WCA ID",...[...Array(f.n)].map((_,i)=>t("att")+" "+(i+1)),t("best"),...(f.avg?[t("avg")]:[])].map(q).join(",")];
+  ranked(ev).forEach((r,i)=>lines.push([i+1,r.name,r.registrantId,r.wca,...[...Array(f.n)].map((_,j)=>fmt(r.attempts?.[j],ev.type)),fmt(r.best,ev.type),...(f.avg?[fmt(r.avg,ev.type)]:[])].map(q).join(",")));
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([lines.join("\n")],{type:"text/csv"}));a.download=(vc.id+"_"+ev.name).replace(/\W+/g,"_")+".csv";a.click();
+};
+$("go").onclick=async()=>{$("lerr").textContent="";try{await signInWithPopup(auth,new GoogleAuthProvider())}catch(e){$("lerr").textContent=t("lerr")+" ("+(e.code||e.message)+")"}};
+$("out").onclick=()=>signOut(auth);
+$("save").onclick=()=>{
+  const a=act(),ev=events.find(e=>e.id===$("se").value),c=lookup();
+  if(!a)return say(t("noact"),true);if(!ev)return say(t("needev"),true);if(!c)return say(t("nf"),true);
+  const att=[];for(const i of $("atts").children){const v=parse(i.value,ev.type);if(v===undefined)return say(t(ev.type==="count"?"badn":"badt").replace("{v}",i.value),true);att.push(v)}
+  if(att.every(x=>x==null))return say(t("atleast1"),true);
+  guard(setDoc(doc(db,"results",`${a.id}_${ev.id}_${c.r}`),{competitionId:a.id,eventId:ev.id,registrantId:c.r,attempts:att,updated:serverTimestamp()}).then(()=>{say(t("saved")+" "+c.n);$("cid").value="";buildAtts(false);$("cid").focus()}));
+};
+$("del").onclick=()=>{
+  const a=act(),ev=events.find(e=>e.id===$("se").value),c=lookup();if(!a||!ev||!c)return say(t("nf"),true);
+  if(confirm(t("confdelr")))guard(deleteDoc(doc(db,"results",`${a.id}_${ev.id}_${c.r}`)).then(()=>{say(t("deleted"));buildAtts(true)}));
+};
+$("adde").onclick=()=>{
+  const a=act(),n=$("en").value.trim();if(!a)return say(t("noact"),true);if(!n)return say(t("namefirst"),true);
+  guard(addDoc(collection(db,"events"),{competitionId:a.id,name:n,format:$("ef").value,type:"time",rank:$("er").value,created:Date.now()}).then(()=>{$("en").value="";say(t("evadded"))}));
+};
+$("dele").onclick=()=>{const ev=events.find(e=>e.id===$("se").value);if(ev&&confirm(t("confdele").replace("{n}",ev.name)))guard(deleteDoc(doc(db,"events",ev.id)))};
+$("adds").onclick=()=>{
+  const em=$("sem").value.trim().toLowerCase();if(!em)return;
+  guard(setDoc(doc(db,"scorers",em),{email:em}).then(()=>{$("sem").value="";say(t("done"))}));
+};
+$("slist").onclick=e=>{const b=e.target.closest("button");if(b&&confirm(t("confs")))guard(deleteDoc(doc(db,"scorers",b.dataset.s)))};
+
+// ---- live data + auth
+const watch=(name,fn)=>onSnapshot(collection(db,name),s=>{fn(s.docs.map(d=>({id:d.id,...d.data()})));render()},e=>{$("evinfo").textContent=t("loaderr")+e.code});
+watch("competitions",d=>comps=d);
+watch("events",d=>events=d);
+watch("results",d=>results=d);
+onAuthStateChanged(auth,async u=>{
+  user=u;role="";scorers=[];if(unsubSc){unsubSc();unsubSc=null}
+  if(u){
+    const em=(u.email||"").toLowerCase();
+    // only the admin is allowed to list the scorers, so a successful read means admin
+    try{await getDocs(collection(db,"scorers"));role="admin"}
+    catch(e){try{role=(await getDoc(doc(db,"scorers",em))).exists()?"scorer":"none"}catch(e2){role="none"}}
+    if(role==="admin")unsubSc=onSnapshot(collection(db,"scorers"),s=>{scorers=s.docs.map(d=>d.id).sort();renderScorers()},()=>{});
+  }
+  showRole();
+});
+const hash=()=>$("admin").classList.toggle("show",location.hash==="#admin");
+addEventListener("hashchange",hash);hash();
+document.querySelectorAll("[data-l]").forEach(b=>b.onclick=()=>{lang=b.dataset.l;try{localStorage.setItem("lang",lang)}catch(e){}applyLang()});
+applyLang();
+</script></body></html>
